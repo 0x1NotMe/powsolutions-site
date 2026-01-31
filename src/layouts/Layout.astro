@@ -22,14 +22,41 @@ const { title, description = "Professional OpenClaw setup service in Sydney, Aus
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_AU" />
     <meta property="og:site_name" content="POW Solutions — OpenClaw Setup Sydney" />
+    <meta property="og:url" content={`https://powsolutions.au${Astro.url.pathname === '/' ? '' : Astro.url.pathname}`} />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
 
+    <!-- Canonical -->
+    <link rel="canonical" href={`https://powsolutions.au${Astro.url.pathname === '/' ? '' : Astro.url.pathname}`} />
+
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "POW Solutions",
+      "description": "Professional OpenClaw AI assistant setup and managed hosting in Sydney, Australia.",
+      "url": "https://powsolutions.au",
+      "email": "powsolutions.pty@gmail.com",
+      "areaServed": {
+        "@type": "City",
+        "name": "Sydney",
+        "containedInPlace": { "@type": "Country", "name": "Australia" }
+      },
+      "priceRange": "$200-$599 AUD",
+      "serviceType": ["AI Assistant Setup", "OpenClaw Installation", "Cloud Server Configuration"],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Sydney",
+        "addressRegion": "NSW",
+        "addressCountry": "AU"
+      }
+    })} />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
